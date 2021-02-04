@@ -1,0 +1,217 @@
+hush
+
+BIENVENIDOS
+
+setcps 0.48
+
+p "SH01A" silence
+
+p "SH01A"  $ n (arp "<updown>" "<f'major7 e'sevenFlat9>") # sound "midi" #  midichan 0
+
+p "SH01A" $ n (arp "<updown>" "<d6'minor7 a6'minor7 c'maj7 b'dis>") # sound "midi" #  midichan 0
+
+p "ms20" $ midinote "{~ d9 ~  e8 ~ ~ e9 ~}" #"midi2" #midichan 0
+
+p "monologue" $ midinote "{d9 ~  e8 ~ ~ e9 ~ ~}" #"midi" #midichan 1
+
+p "bd" $ every 4 (rev) $ "bd"*2  #5 #shape 0.8
+
+p "sd" $ every 6 (striate 8) $ stack  [s  "cp*4", s "sd*2 "]  #shape 0.2 #45
+
+p "hh" $ stutWith 3 (2/4) (degradeBy "0.7") $ "hh*16" # gain "1 0.5 1 0.5 1 0.6 1 0.5 1 0.4" # cut "0.5" # 6
+
+hush
+
+  d4 $ striate 16 $ fast 8 $ randslice 32 $ loopAt "<6.4 .. 6.9>" $ "redesdnb" #cut 1  # shape 0.3  #delay 0.9 #delayfeedback 0.33 #delaytime 0.333
+
+  d4 silence
+
+hush
+
+setcps 0.77
+
+p "beat" $ stack ["bd*2 sd:15",
+ "hh:13*4",
+"fx:5"]
+
+ p "lupe"  $ rarely (#crush 2) $ juxBy 0.33 (fast 2) $ every 3 rev $ struct (ascii "<L S D>")  $ iter 9  $ randslice 32  $chop 16 $ loopAt 1.3 "redesloop" #cut 1 # n 7
+
+p "lupe" silence
+
+  p "percas" $ "{perc@9 hh@3__}%16"  # n (run 33) #release 0.2 # crush "{3 6 9}%16" #gain 0.7 #room 0.5 #orbit 2
+
+p "ms20" $ midinote "{a8 ~ a7 ~ a8_ ~ ~ a6 ~ ~ a9 ~ ~ a8 ~ a10 ~ c7 ~ ~ ~ ~ ~ a9 ~ ~ c ~ ~ a8 ~}%16" #"midi2" # midichan "0"
+
+ p "monologue" $ midinote "{~ a7 ~ a6 ~ a7_ ~ ~ a6 ~ ~ a8 ~ ~ a7 ~ a11 ~ c6 ~ ~ ~ ~ ~ a9 ~ ~ c ~ ~ a8}%16" #"midi" # midichan "1"
+
+ p "SH01A" $ n ("a6'minor e5'dis? ~ f7'maj? c7'maj? ~ e5'dis? f6'maj?") # "midi" #midichan 0
+
+  p "SH01A" $ n ("a6'minor e5'dis ~ f7'maj c7'maj ~ e5'dis f6'maj") # "midi" #midichan 0
+
+   p "SH01A" $ n ("a6'minor e5'dis? ~ f7'maj? c7'maj? ~ e5'dis? f6'maj") # "midi" #midichan 0
+
+p "SH01A" silence
+
+hush
+
+p "monologue" silence
+
+p "monologue" $ palindrome $ note "0 -12 -8 -8*2" # s "midi" # midichan 1
+                # orbit 0
+
+p"beat" $ s "bd ~ ~ ~" #shape 0.5
+
+ p"beat2" $ s "~ sn? cp hh:19"
+
+   p"synth" $ n "c'maj e'min"  # s "midi" # midichan 0
+                # orbit 0
+
+                p"SH01A" $ n "e'minor7"  # s "midi" # midichan 0
+                               # orbit 0
+
+                               p"SH01A" $ n "g'major7___"  # s "midi" # midichan 0
+                                              # orbit 0
+
+                                              p"SH01A" $ n "d'major7___"  # s "midi" # midichan 0
+                                                             # orbit 0
+
+                   p"SH01A" silence
+
+ p "ms20" $ midinote "{c8 ~ c7 ~ c8 ~ c6 ~ e7 ~ e9 ~ e8 ~ e10 ~}%16" #"midi2" # midichan "0"
+
+hush
+
+p "ms20" $ midinote "{d11 ~ d9 ~ }" #"midi2" #midichan "0"
+
+p "monologue" $ midinote "{~ e8 ~ e9 }" #"midi" #midichan "1"
+
+hush
+
+
+
+DIMENSIONAL SHIFT
+
+do
+setcps (9/60/4)
+p"monologue" $ note "2 -10 -24 . -22" # s "midi" # midichan 1
+   #legato 12
+   # orbit 0
+p "bdsd" $ (s "bd:6 sd:22") #shape 0.3 #room 0.2 #orbit 2
+
+            p "bdsd" $ (s "bd:6*2") # shape 0.2
+
+
+    p "hh" $ (s "hh*8 hh*4 hh:3 hh hh:6 hh:3")
+           # cutoff (range 666 18000 $ fast 3 $ tri)
+           # crush "<2 3 4 5 6?>"
+           # orbit 4
+
+            p "bdsd" silence
+
+            p "hh"   silence
+
+
+      p"monologue" $ note "0 -10 -22  -3 -23 -12" # s "midi" # midichan 1
+                   # orbit 0
+
+                  p"monologue" $ note "2 -10 -22  -3 -23 -12" # s "midi" # midichan 1
+                               # orbit 0
+
+              p"monologue" $ note "5 -10 -22  -3 -23 -12" # s "midi" # midichan 1
+                               # orbit 0
+
+                        p"monologue" $ note "4 -10 -22  -3 -23 -12" # s "midi" # midichan 1
+                                    # orbit 0
+
+hush
+
+                                  p"SH01A" $ n "a'min"
+                                 # sound "midi"
+                              # legato 2
+
+                                                  p"SH01A" $ n "d6'min"
+                                                       # sound "midi"
+                                                         # legato 2
+
+                                p"SH01A" $ n "d6'nine"
+                                  # sound "midi"
+                                # legato 2
+
+                                                  p"SH01A" $ n "c7'major"
+                                                      # sound "midi"
+                                                       # legato 2
+
+       p"SH01A" $ n ("d a b" |+ "<'Sus4 'nine '7sus4>")
+            # sound "midi"
+               # legato 2
+
+
+                          hush
+
+                      setcps 0.62
+
+
+                                  p 0 $ "bd*4" # 32 # shape 0.8 #orbit 9
+
+    p 1 $ "~ sd ~ sd" #14 # room 0.2 #shape 0.4 #release 0.8 #speed 1.2
+
+                 p 3 $ "hh*8" #7 # gain unts # speed 1 # room 0.1
+
+do
+p 0 silence
+p 1 silence
+p 3 silence
+
+    p "x3"  $ every 18 (fast 2) $ every 9 (rev) $ fast  4 $ randslice 32  $ "redesdnb" # accelerate " 0" #cut 1 #n 10 #shape 0.3 # hpf "81"
+
+    p "x2" $ randslice 8 $  chop 1 $ striate  16 $ juxBy 0.39 (fast 1) $ "redesloop"  #legato 1 #shape 0.1 # djf 0.7 # accelerate "{1 3 0 0 0 -3 2}%16" # fast 1 (vowel "e______e e e o a a____") #room 0.6 #hpf "193"
+
+        p "x3" silence
+
+     p "x2" silence
+
+p "x"$ randslice 16 $ chop "8" $ juxBy 0.27 (fast 1) $ "redesdnb"  #n 8  #room 0.4 #shape 0.4 #orbit 4 # cut 5
+                              # coarse "{3 7 8 0 0 12 15 15 15 18 24}"
+                          # speed "-1 0 0 -1 1 0 2 0"
+                           # binshift "{0.2 . . 0.4}%16"
+
+                          p "SH01A" $ n "~  ~ e'min? ~"
+                                     # sound "midi"
+                                     # legato 1
+
+                               p "SH01A" $ n "~  ~ e'minor7? ~"
+                                          # sound "midi"
+                                          # legato 1
+
+                                          p "SH01A" $ n "~  ~ e4'min? ~"
+                                                     # sound "midi"
+                                                     # legato 1
+
+                           p "SH01A" $ n "~  ~ e4'minor7? ~"
+                                  # sound "midi"
+                                # legato 1
+
+                                        p "SH01A" $ n "c5'minor 7___ ~ ~ "
+                                              # sound "midi"
+
+                                              p "SH01A" $ n "~  ~ e4'm11sharp? ~"
+                                                         # sound "midi"
+
+        p "SH01A" $ n "c'dom7"
+                # sound "midi"
+
+                                                          p "SH01A" silence
+
+   p "ms20" $ midinote "{~ ~ e8 ~ ~ g6 ~ c8 ~ ~ e8 ~ e9 ~ e8 e7}%8" #"midi2" # midichan "0"
+
+   p "monologue" $ midinote "{~ e e8 ~ ~ g7 ~ c6 ~ ~ e8 ~ e9 ~ e8 e9}%8" #"midi" # midichan "1"
+
+   p "monologue"$ midinote "{e e5 e8 e3 e6 g9 g8 c8 c6 c7 e8 e e9 e6 e9 e1}%16" #"midi" # midichan "1"
+
+   p "monologue"  $ midinote "{e e6 e8 e3 e6 e6 g7 c8 c6 c7 e8 e e7 e6 g8}%16" #"midi" # midichan "1"
+
+   p "monologue"  $ midinote "{g6 g8_ e6 e8 e6 e6 g7 c8 c6 c7 e8 g7 e6 g8?}%16" #"midi" # midichan "1"
+
+hush
+
+                                          GRACIASSSSSSSSSSSSS!!!!!!!!!!!
